@@ -4,6 +4,15 @@ echo "### androidDevTools installation script ###"
 sleep 2s
 echo "### This will take some time to finish, please wait. ###"
 
+### set link ###
+# Android Studio for Mac
+ASfM="https://dl.google.com/dl/android/studio/install/1.0.1/android-studio-ide-1641136.dmg"
+
+# Android Studio for Linux
+ASfL="https://dl.google.com/dl/android/studio/ide-zips/1.0.1/android-studio-ide-135.1641136-linux.zip"
+
+###
+
 # create androidDevTools directory
 DIR="androidDevTools"
 if [ ! -d $DIR ]; then
@@ -18,9 +27,30 @@ pwd
 
 sleep 1s
 
-OS=$(uname -s)
-echo "Operating System is $OS"
+OSType=$(uname -s)
+echo "Operating System is $OSType"
 
-wget -c https://dl.google.com/dl/android/studio/install/1.0.1/android-studio-ide-1641136.dmg
+case "$OSType" in
+  Linux*)   {
+	
+	# Download Android Studio for Linux
+	wget -c $ASfL
+
+	};;
+  Darwin*)  {
+  	# Installation for Mac
+  	
+  	JavaVersion=$("javac" -version)
+  	echo "${JavaVersion}"
+  	
+  	sleep 1s
+
+  	# Download Android Studio for Mac
+	wget -c $ASfM
+
+	};; 
+
+  *) echo " ### Operating System isn't OS X or Linux. Sorry ###" ;;
+esac
 
 exit	
