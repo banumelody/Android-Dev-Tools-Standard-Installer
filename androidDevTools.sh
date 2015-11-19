@@ -7,9 +7,11 @@ echo "### This will take some time to finish, please wait. ###"
 ### set link ###
 # Android Studio for Mac
 ASfM="https://dl.google.com/dl/android/studio/install/1.0.1/android-studio-ide-1641136.dmg"
+ASfM="https://dl.google.com/dl/android/studio/install/1.4.1.0/android-studio-ide-141.2343393-mac.dmg"
 
 # Android Studio for Linux
 ASfL="https://dl.google.com/dl/android/studio/ide-zips/1.0.1/android-studio-ide-135.1641136-linux.zip"
+ASfL="https://dl.google.com/dl/android/studio/ide-zips/1.4.1.0/android-studio-ide-141.2343393-linux.zip"
 
 ###
 
