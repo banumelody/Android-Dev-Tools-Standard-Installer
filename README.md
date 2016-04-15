@@ -12,10 +12,8 @@ It is Android Dev Tools Standard requirement installer for OS X or Linux. Based 
 <code> $ ./androidDevTools.sh
 </code>
 
-## Update
+## Updates
 ### Nov 19, 2015
 Update to Android Studio 1.4.1.0
-
-## Update
 ### Apr 15, 2016
 Update to Android Studio 2.0.0.20
