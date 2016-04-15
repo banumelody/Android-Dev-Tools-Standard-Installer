@@ -34,6 +34,23 @@ sleep 1s
 OSType=$(uname -s)
 echo "Operating System is $OSType"
 
+function copy_to_app_dir {
+  echo "------------------"
+  read -p "Do you want to copy Android Studio.app to Applications? [y/n]" -n 1 -r
+  echo    # (optional) move to a new line
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    cp -rv Android\ Studio.app Applications/
+    echo "Copied!"
+  elif [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    echo "Ok, thanks!"
+  else 
+    echo "Your input is wrong!"
+    copy_to_app_dir
+  fi
+}
+
 case "$OSType" in
   Linux*)   {
 	
@@ -50,11 +67,21 @@ case "$OSType" in
   	sleep 1s
 
   	# Download Android Studio for Mac
-	wget -c $ASfM
+	  wget -c $ASfM
+
+    sleep 1s
+
+    hdiutil attach *.dmg
+
+    cd /Volumes/Android*
+
+    copy_to_app_dir
+    
 
 	};; 
 
   *) echo " ### Operating System isn't OS X or Linux. Sorry ###" ;;
 esac
-
+  echo "Thanks"
+  echo "Done"
 exit	
